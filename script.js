@@ -44,9 +44,4 @@ const Graphics = {
 
 console.log('FusionDex Graphics Processing initialized in debug mode');
 
- (function() {
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  if (timezone.startsWith('America')) {
-    window.location.href = 'https://ifdex.eu/fusion';
-  }
-})();
+
