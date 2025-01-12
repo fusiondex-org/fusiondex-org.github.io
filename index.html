@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FusionDex Graphics Processing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white">
+        <div class="container mx-auto px-4 py-16 text-center">
+            <h1 class="text-4xl font-bold mb-4">FusionDex Graphics Processing</h1>
+            <p class="text-xl mb-8">Official graphics management system for Pokémon Infinite Fusion</p>
+            <div class="space-x-4">
+                <a href="https://github.com/fusiondex-org/fusiondex-org.github.io" 
+                   class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    View on GitHub
+                </a>
+                <a href="https://fusiondex-org.github.io/script.js" 
+                   class="bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition">
+                    Download Script
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Features Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Features</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">Efficient Rendering</h3>
+                    <p>Optimized performance for rendering Pokémon sprites directly into web pages.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">Seamless Integration</h3>
+                    <p>Easy integration with Pokémon Infinite Fusion spritesheets.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">Utility Functions</h3>
+                    <p>Comprehensive set of tools for sprite loading and management.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Installation</h2>
+            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <pre class="language-html p-6 m-0"><code>&lt;script src="https://fusiondex-org.github.io/script.js"&gt;&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Usage Example Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Usage Example</h2>
+            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <pre class="language-html p-6 m-0"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;FusionDex Sprite Renderer&lt;/title&gt;
+    &lt;script src="https://fusiondex-org.github.io/script.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="sprite-container"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        const spriteContainer = document.getElementById('sprite-container');
+        const sprite = Graphics.renderSprite('spritesheet.png', { 
+            x: 0, 
+            y: 0, 
+            width: 64, 
+            height: 64 
+        });
+        spriteContainer.appendChild(sprite);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Documentation</h2>
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">renderSprite(imagePath, options)</h3>
+                    <p class="mb-4">Renders a sprite from a given spritesheet image.</p>
+                    <div class="bg-gray-800 rounded-lg overflow-hidden">
+                        <pre class="language-javascript p-6 m-0"><code>const sprite = Graphics.renderSprite(imagePath, {
+    x: 0,          // X coordinate on spritesheet
+    y: 0,          // Y coordinate on spritesheet
+    width: 64,     // Width of sprite
+    height: 64     // Height of sprite
+});</code></pre>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">loadSpriteSheet(path)</h3>
+                    <p class="mb-4">Loads a spritesheet for later use.</p>
+                    <div class="bg-gray-800 rounded-lg overflow-hidden">
+                        <pre class="language-javascript p-6 m-0"><code>await Graphics.loadSpriteSheet('path/to/spritesheet.png');</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contributing Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Contributing</h2>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <p class="mb-4">We welcome contributions! Here's how you can help:</p>
+                <ol class="list-decimal list-inside space-y-2">
+                    <li>Fork the repository</li>
+                    <li>Create a feature branch (<code class="bg-gray-100 px-2 py-1 rounded">git checkout -b feature/AmazingFeature</code>)</li>
+                    <li>Commit your changes (<code class="bg-gray-100 px-2 py-1 rounded">git commit -m 'Add some AmazingFeature'</code>)</li>
+                    <li>Push to the branch (<code class="bg-gray-100 px-2 py-1 rounded">git push origin feature/AmazingFeature</code>)</li>
+                    <li>Open a Pull Request</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>Created and maintained by <a href="https://github.com/fusiondex-org" class="text-blue-400 hover:text-blue-300">fusiondex-org</a></p>
+            <p class="mt-2">Licensed under the MIT License</p>
+        </div>
+    </footer>
+
+</body>
+</html>
