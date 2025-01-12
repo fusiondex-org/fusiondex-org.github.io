@@ -38,7 +38,8 @@ const Graphics = {
         
         // Log initialization in debug mode
         if (this.debugMode) {
-            console.log('FusionDex Graphics Processing initialized in debug mode');
         }
     }
 };
+
+console.log('FusionDex Graphics Processing initialized in debug mode');
