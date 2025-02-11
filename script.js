@@ -49,29 +49,40 @@ console.log('FusionDex Graphics Processing initialized in debug mode');
         let canonical = document.querySelector("link[rel='canonical']");
         if (canonical) {
             canonical.href = "https://ifdex.eu/fusion";
-            // console.log("Canonical URL updated.");
+            console.log("Canonical URL updated.");
         } else {
-            // console.log("Canonical tag not found.");
+            console.log("Canonical tag not found.");
         }
 
         // Update Open Graph URL
         let ogUrl = document.querySelector("meta[property='og:url']");
         if (ogUrl) {
             ogUrl.setAttribute("content", "https://ifdex.eu/fusion");
-            // console.log("OG URL updated.");
+            console.log("OG URL updated.");
         } else {
-            // console.log("OG URL tag not found.");
+            console.log("OG URL tag not found.");
         }
 
-        // Update all meta tags with old URL
-        document.querySelectorAll("meta, link").forEach(tag => {
+        // Update all meta tags and schema.org data containing the old URL
+        document.querySelectorAll("meta, link, script[type='application/ld+json']").forEach(tag => {
             if (tag.getAttribute("content") && tag.getAttribute("content").includes("infinitefusion.online")) {
-                tag.setAttribute("content", tag.getAttribute("content").replace("infinitefusion.online", "ifdex.eu/fusion"));
+                tag.setAttribute("content", tag.getAttribute("content").replace(/https:\/\/infinitefusion\.online/g, "https://ifdex.eu/fusion"));
             }
             if (tag.getAttribute("href") && tag.getAttribute("href").includes("infinitefusion.online")) {
-                tag.setAttribute("href", tag.getAttribute("href").replace("infinitefusion.online", "ifdex.eu/fusion"));
+                tag.setAttribute("href", tag.getAttribute("href").replace(/https:\/\/infinitefusion\.online/g, "https://ifdex.eu/fusion"));
+            }
+            if (tag.tagName === "SCRIPT" && tag.type === "application/ld+json") {
+                let jsonData = JSON.parse(tag.innerText);
+                if (jsonData.url && jsonData.url.includes("infinitefusion.online")) {
+                    jsonData.url = jsonData.url.replace(/https:\/\/infinitefusion\.online/g, "https://ifdex.eu/fusion");
+                }
+                if (jsonData.image && jsonData.image.includes("infinitefusion.online")) {
+                    jsonData.image = jsonData.image.replace(/https:\/\/infinitefusion\.online/g, "https://ifdex.eu/fusion");
+                }
+                tag.innerText = JSON.stringify(jsonData);
             }
         });
+        console.log("All references to infinitefusion.online updated.");
     });
 })();
 
